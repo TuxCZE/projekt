@@ -21,7 +21,10 @@
     
     public function destinace()
     {
-      return view('destinace', $this->VratMenu(2));
+      $destinace_vse = DB::select('select * from destinace ORDER BY ID ASC');
+      $dovolene_nahoda = DB::select('SELECT * FROM dovolene ORDER BY RAND() LIMIT 10');
+    
+      return view('destinace', $this->VratMenu(2), ['destinance_vse' => $destinace_vse, 'dovolene_rand' => $dovolene_nahoda]);
     }
     
     public function sluzby()

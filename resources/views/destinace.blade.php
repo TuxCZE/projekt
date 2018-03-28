@@ -16,62 +16,19 @@
 						</div>
             
 						<div class="top-destinations-bottom">
-							<div class="td-grids">
-								<div class="col-xs-3 td-left">
-									<img src="images/t1.jpg" alt="">
-								</div>
-								<div class="col-xs-7 td-middle">
-									<a href="single.html">Donec libero id lacinia</a>
-									<p>Dapibus eu purus vel libero in nunc</p>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-								</div>
-								<div class="col-xs-2 td-right">
-									<p>$190</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="td-grids">
-								<div class="col-xs-3 td-left">
-									<img src="images/t2.jpg" alt="">
-								</div>
-								<div class="col-xs-7 td-middle">
-									<a href="single.html">Donec libero id lacinia</a>
-									<p>Dapibus eu purus vel libero in nunc</p>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-								</div>
-								<div class="col-xs-2 td-right">
-									<p>$213</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="td-grids">
-								<div class="col-xs-3 td-left">
-									<img src="images/t3.jpg" alt="">
-								</div>
-								<div class="col-xs-7 td-middle">
-									<a href="single.html">Donec libero id lacinia</a>
-									<p>Dapibus eu purus vel libero in nunc</p>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-								</div>
-								<div class="col-xs-2 td-right">
-									<p>$176</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="td-grids">
-								<div class="col-xs-3 td-left">
-									<img src="images/t4.jpg" alt="">
-								</div>
-								<div class="col-xs-7 td-middle">
-									<a href="single.html">Donec libero id lacinia</a>
-									<p>Dapibus eu purus vel libero in nunc</p>
-									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-								</div>
-								<div class="col-xs-2 td-right">
-									<p>$490</p>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
+              @foreach ($dovolene_rand as $dov_polozka)
+                <div class="td-grids">
+  								<div class="col-xs-3 td-left"><img src="images/t1.jpg" alt=""></div>
+                  
+  								<div class="col-xs-7 td-middle">
+  									<a href="/dovolena/{{ $dov_polozka->Seo_url }}">{{ $dov_polozka->Titulek }}</a>
+  									<p>{{ $dov_polozka->Popisek_kratky }}</p>
+  									<span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  								</div>
+                  
+  								<div class="clearfix"> </div>
+							 </div>
+              @endforeach
 						</div>
 					</div>
 				</div>
