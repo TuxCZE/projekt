@@ -49,18 +49,18 @@
     
     public function zobrazFiltr($destinace = -1, $cena_min = -1, $cena_max = -1, $akce = -1, $lm = -1, $stranka = 1)
     {
+      $destinace_vse = DB::select('select * from destinace ORDER BY Nazev ASC');
+      
+      //Upravení proměnných parametrů
+      if($cena_min == -1) $cena_min = 0;
+      if($cena_max == -1) $cena_max = 999999999;
+      
       if($destinace == -1) {
         $dovolene_celkem = DB::table('dovolene')->count();
       } else {
         $id_dest = DB::table('destinace')->where('Seo_url', "=" , $destinace)->pluck('ID');
         $dovolene_celkem = DB::table('dovolene')->where('ID_DESTINACE', "=" , $id_dest)->count();
       }
-      
-      $destinace_vse = DB::select('select * from destinace ORDER BY Nazev ASC');
-      
-      //Upravení proměnných parametrů
-      if($cena_min == -1) $cena_min = 0;
-      if($cena_max == -1) $cena_max = 999999999;
       
       if($dovolene_celkem > 0){ 
         $stranky_pocet = ceil($dovolene_celkem / $this->na_stranku);
@@ -79,13 +79,23 @@
             $dovolene = DB::table('dovolene')->where([['Cena', ">=", $cena_min], ['Cena', "<=", $cena_max]])->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get();
           }
         } else {
-          $dovolene = DB::table('dovolene')->where('ID_DESTINACE', "=", $id_dest)->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get();
+          if($lm == 1 && $akce == 1) {
+            $dovolene = DB::table('dovolene')->where([['ID_DESTINACE', "=", $id_dest], ['Cena', ">=", $cena_min], ['Cena', "<=", $cena_max], ['Cena_pred', ">", 0], ['Lastminute', "=", 1]])->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get();
+          } elseif($lm == 1) {
+            $dovolene = DB::table('dovolene')->where([['ID_DESTINACE', "=", $id_dest], ['Cena', ">=", $cena_min], ['Cena', "<=", $cena_max], ['Lastminute', "=", 1]])->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get();
+          } elseif($akce == 1) {
+            $dovolene = DB::table('dovolene')->where([['ID_DESTINACE', "=", $id_dest], ['Cena', ">=", $cena_min], ['Cena', "<=", $cena_max], ['Cena_pred', ">", 0]])->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get();
+          } else { 
+            $dovolene = DB::table('dovolene')->where([['ID_DESTINACE', "=", $id_dest], ['Cena', ">=", $cena_min], ['Cena', "<=", $cena_max]])->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get();
+          }
         }
       } else {
          return view('nabidka', $this->VratMenu(1), ['destinace' => $destinace_vse, 'chyba' => "Nebyla nalezena žádná dovolená!", 'stranek' => 0]);
       } 
     
-      return view('nabidka', $this->VratMenu(1), ['destinace' => $destinace_vse, 'dovolene' => $dovolene, 'stranek' => $stranky_pocet]);
+      if(count($dovolene) > 0){
+        return view('nabidka', $this->VratMenu(1), ['destinace' => $destinace_vse, 'dovolene' => $dovolene, 'stranek' => $stranky_pocet]);
+      } else return view('nabidka', $this->VratMenu(1), ['destinace' => $destinace_vse, 'chyba' => "Nebyla nalezena žádná dovolená, která by splňovala zadané parametry!", 'stranek' => 0]); 
     }
   }
 ?>
