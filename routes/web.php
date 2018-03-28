@@ -48,3 +48,9 @@ Route::post('/', ['uses' => 'WebController@hledanidovolene', 'as' => 'web.hledan
 /*
   ADMINISTRACE
 */
+Route::get('/administrace', ['uses' => 'AdminController@prihlaseni', 'as' => 'admin.prihlaseni']);
+Route::get('/administrace/uvod', ['uses' => 'AdminController@uvod', 'as' => 'admin.uvod']);
+Route::get('/administrace/dovolene', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene']);
+Route::get('/administrace/uzivatele', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele']);
+Route::get('/administrace/sluzby', ['uses' => 'AdminController@sluzby', 'as' => 'admin.sluzby']);
+Route::get('/administrace/kontakt', ['uses' => 'AdminController@kontakt', 'as' => 'admin.kontakt']);
