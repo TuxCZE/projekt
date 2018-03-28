@@ -45,18 +45,18 @@
 				<div class="dropdown-grids">
 						<div id="loginContainer"><a href="#" id="loginButton"><span>Přihlášení</span></a>
 							<div id="loginBox">                
-								<form id="loginForm">
+                {{ Form::open(array('url' => '/prihlaseni', 'id' => 'loginForm')) }}
 									<div class="login-grids">
 										<div class="login-grid-left">
 											<fieldset id="body">
 												<fieldset>
 													<label for="email">Emailová adresa</label>
-													<input type="text" name="email" id="email">
+													<input type="text" name="log_email" id="email">
 												</fieldset>
                         
 												<fieldset>
 													<label for="password">Heslo</label>
-													<input type="password" name="password" id="password">
+													<input type="password" name="log_heslo" id="password">
 												</fieldset>
                         
 												<input type="submit" id="login" value="Přihlásit se">
@@ -66,7 +66,7 @@
 											<span><a href="#">Zapomenuté heslo?</a></span>
 										</div>
 									</div>
-								</form>
+								{{ Form::close() }}
 							</div>
 						</div>
 				</div>

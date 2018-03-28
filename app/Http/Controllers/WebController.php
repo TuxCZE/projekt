@@ -42,6 +42,16 @@
       return view('registrace', $this->VratMenu(0));
     }
     
+    public function logForm()
+    {
+      return view('prihlaseni', $this->VratMenu(0));
+    }
+    
+    public function ucet()
+    {
+      return view('ucet', $this->VratMenu(0));
+    }
+    
     /*
       ZPRACOVÁNÍ FORMULÁŘE Z ÚVODNÍ STRÁNKY
     */
@@ -51,7 +61,29 @@
     
     public function Prihlaseni()
     {
+      if(isset($_POST["log_email"])){
+        $email = $_POST["log_email"];
+        $heslo = $_POST["log_heslo"];
+        
+        if($this->JeEmailDobre($email)){
+          if(strlen($heslo) > 4){
+            $heslo = "l1" . sha1($heslo . "47") . "web";  
+          
+            $udaje_kontrola = DB::table('uzivatele')->where([['Email', "=" , $email], ['Heslo', "=", $heslo]])->count();  
+            
+            if($udaje_kontrola > 0){
+               session(['email' => $email, 'hash' => $heslo]);
+               return redirect('/ucet');  
+            } else return $this->LogChyba("Zadané údaje nejsou správné!");  
+          } else return $this->LogChyba("Zadaná heslo je příliš krátké! Musí obsahovat minimálně 4 znaky!");  
+        } else return $this->LogChyba("Chybně vyplněná položka email! (Email nemá správný formát - neco@domena)");  
+      }
     }
+    
+    private function LogChyba($text)
+    { 
+      return view('prihlaseni', $this->VratMenu(0), ['chyba' => $text]); 
+    } 
     
     private function RegChyba($text)
     { 
@@ -103,7 +135,7 @@
                         
                         //Při výchozím nastavení je účet automaticky aktivován
                         DB::insert('insert into uzivatele (ID, Jmeno, Prijmeni, Email, Heslo, Telefon, Prava, IP, Datum_registrace, Aktivovan, AktivacniKod) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
-                        [0, $jmeno, $prijmeni, $email, $telefon, 1, $IP, $datum_reg, 1, $kod]);
+                        [0, $jmeno, $prijmeni, $email, $heslo, $telefon, 1, $IP, $datum_reg, 1, $kod]);
                         
                         return $this->RegChyba("Uživatelský účet byl úspěšně vytvořen, můžete se přihlásit!");  
                       } else return $this->RegChyba("Zadané telefonní číslo už někdo používá!");  
