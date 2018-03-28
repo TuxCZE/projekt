@@ -73,12 +73,12 @@
   							<div class="product-right-top">
   								<div class="p-left">
   									<div class="p-right-img">
-  										<a href="p-single.html"> </a>
+  										<a href="/dovolena/{{ $dovolena->Seo_url }}"> </a>
   									</div>
   								</div>
   								<div class="p-right">
   									<div class="col-md-6 p-right-left">
-  										<a href="p-single.html">{{ $dovolena->Titulek }}</a>
+  										<a href="/dovolena/{{ $dovolena->Seo_url }}">{{ $dovolena->Titulek }}</a>
   										<div class="p-right-price">
   											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
   											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
