@@ -16,9 +16,11 @@
     
     public function filtrovaniParametru()
     {
-      if(isset($_POST["cena_max"])){
-        $dest_id = $_POST["destinace_id"];
-        $seo_dest = DB::table('destinace')->where('ID', "=" , $dest_id)->value("Seo_url");
+      if(isset($_POST["cena_max"])){   
+        if(isset($_POST["destinace_id"])){
+          $dest_id = $_POST["destinace_id"];
+          $seo_dest = DB::table('destinace')->where('ID', "=" , $dest_id)->value("Seo_url");
+        } else $seo_dest = -1; 
         
         $cena_min = $_POST["cena_min"];
         if($cena_min < 0) $cena_min = 0;
@@ -54,7 +56,7 @@
       //Upravení proměnných parametrů
       if($cena_min == -1) $cena_min = 0;
       if($cena_max == -1) $cena_max = 999999999;
-      
+            
       if($destinace == -1) {
         $dovolene_celkem = DB::table('dovolene')->count();
       } else {

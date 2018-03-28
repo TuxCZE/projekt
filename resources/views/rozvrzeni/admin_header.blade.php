@@ -52,6 +52,10 @@
                       <div id="administrace_menu">
                         <span><a href="#">Editace účtu</a></span>
                         <span><a href="/odhlaseni">Odhlásit se</a></span>
+                        
+                        <hr />
+                        
+                        <span><a href="/">Přejít na web</a></span>
                       </div>
 										</div>
 									</div>

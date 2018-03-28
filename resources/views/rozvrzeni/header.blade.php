@@ -81,6 +81,11 @@
                         <span><a href="#">Přehled objednávek</a></span>
                         <span><a href="#">Editace účtu</a></span>
                         <span><a href="/odhlaseni">Odhlásit se</a></span>
+                        
+                         @if (session("prava") > 2)
+                          <hr />
+                          <span><a href="/administrace">Administrace</a></span>
+                         @endif
                       </div>
 										</div>
 									</div>

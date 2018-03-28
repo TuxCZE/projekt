@@ -59,77 +59,77 @@
 													<div class="b_room">
 														<div class="booking_room">
 															<div class="reservation">
+                              {{ Form::open(array('url' => '/hledat')) }}
 																<ul>		
 																	<li  class="span1_of_1 desti about-desti">
 																		 <h5>Destinace</h5>
 																		 <div class="book_date">
-																			 <form>
 																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-																				<input type="text" placeholder="Země" class="typeahead1 input-md form-control tt-input" required="">
-																			 </form>
+																				<input type="text" name="hledat_zem" placeholder="Země" class="typeahead1 input-md form-control tt-input" required="">
 																		 </div>					
 																	 </li>
 																</ul>
 															</div>
+                              
 															<div class="reservation">
 																<ul>	
 																	 <li  class="span1_of_1">
 																		 <h5>Termín OD</h5>
 																		 <div class="book_date">
-																		 <form>
 																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-																			<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-																		</form>
+																			<input type="date" name="hledat_od" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
 																		 </div>		
 																	 </li>
+                                   
 																	 <li  class="span1_of_1 left">
 																		 <h5>Termín DO</h5>
 																		 <div class="book_date">
-																			 <form>
 																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-																				<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
-																			</form>
+																				<input type="date" name="hledat_do" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
 																		 </div>					
 																	 </li>
+                                   
 																	 <li class="span1_of_1 left w-adult">
 																		 <h5>Dospělí (18+)</h5>
 																		 <!----------start section_room----------->
 																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">1</option>
-																					<option value="null">2</option>         
-																					<option value="AX">3</option>
-																					<option value="AX">4</option>
-																					<option value="AX">5</option>
-																					<option value="AX">6</option>
+																			  <select id="country" name="hledat_dospeli" onchange="change_country(this.value)" class="frm-field required">
+																					<option value="1">1</option>
+																					<option value="2">2</option>         
+																					<option value="3">3</option>
+																					<option value="4">4</option>
+																					<option value="5">5</option>
+																					<option value="6">6</option>
 																			  </select>
 																		 </div>	
 																	</li>
+                                  
 																	<li class="span1_of_1 left w-child">
 																		 <h5>Děti (0-17)</h5>
 																		 <!----------start section_room----------->
 																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">1</option>
-																					<option value="null">2</option>         
-																					<option value="AX">3</option>
-																					<option value="AX">4</option>
-																					<option value="AX">5</option>
-																					<option value="AX">6</option>
+																			  <select id="country" name="hledat_deti" onchange="change_country(this.value)" class="frm-field required">
+																					<option value="1">1</option>
+																					<option value="2">2</option>         
+																					<option value="3">3</option>
+																					<option value="4">4</option>
+																					<option value="5">5</option>
+																					<option value="6">6</option>
 																			  </select>
 																		 </div>	
 																	</li>
+                                  
 																	<li class="span1_of_1 w-rooms">
 																		 <h5>Pokojů</h5>
 																		 <!----------start section_room----------->
 																		 <div class="section_room">
-																			  <select id="country" onchange="change_country(this.value)" class="frm-field required">
-																					<option value="null">1</option>
-																					<option value="null">2</option>         
-																					<option value="AX">3</option>
-																					<option value="AX">4</option>
-																					<option value="AX">5</option>
-																					<option value="AX">6</option>
+																			  <select id="country" name="hledat_pokoju" onchange="change_country(this.value)" class="frm-field required">
+																					<option value="1">1</option>
+																					<option value="2">2</option>         
+																					<option value="3">3</option>
+																					<option value="4">4</option>
+																					<option value="5">5</option>
+																					<option value="6">6</option>
 																			  </select>
 																		 </div>	
 																	</li>
@@ -140,13 +140,12 @@
 																<ul>	
 																	 <li class="span1_of_3">
 																			<div class="date_btn">
-																				<form>
-																					<input type="submit" value="Vyhledat" />
-																				</form>
+																					<input class="hledat_tl" type="submit" value="Vyhledat" />
 																			</div>
 																	 </li>
 																	 <div class="clearfix"></div>
 																</ul>
+                              {{ Form::close() }}
 															</div>
 														</div>
 														<div class="clearfix"></div>

@@ -72,7 +72,9 @@
             $udaje_kontrola = DB::table('uzivatele')->where([['Email', "=" , $email], ['Heslo', "=", $heslo]])->count();  
             
             if($udaje_kontrola > 0){
-               session(['email' => $email, 'hash' => $heslo]);
+               $prava = DB::table('uzivatele')->where('Email', "=" , $email)->pluck('Prava')[0];
+            
+               session(['email' => $email, 'hash' => $heslo, 'prava' => $prava]);
                return redirect('/ucet');  
             } else return $this->LogChyba("Zadané údaje nejsou správné!");  
           } else return $this->LogChyba("Zadaná heslo je příliš krátké! Musí obsahovat minimálně 4 znaky!");  
@@ -153,6 +155,7 @@
     {
       session()->forget('email');
       session()->forget('hash');
+      session()->forget('prava');
       
       return redirect('/');  
     }

@@ -19,9 +19,9 @@ Route::get('/odhlaseni', ['uses' => 'WebController@odhlasit', 'as' => 'web.odhla
 
 //Hledání
 Route::get('/hledat/{destinace}/{termin_od}/{termin_do}/{dospeli}-{deti}-{pokoju}/{stranka}', ['uses' => 'HledaniController@zobrazVysledek', 'as' => 'hledani.zobraz'])->where(
-['destinace' => '[a-zA-Z_]+', 'termin_od' => '[0-9.]+', 'termin_do' => '[0-9.]+', 'dospeli' => '[1-6]+', 'deti' => '[1-6]+', 'pokoju' => '[1-6]+', 'stranka' => '[0-9]+']);
+['destinace' => '[a-zA-Z_]+', 'termin_od' => '[0-9-]+', 'termin_do' => '[0-9-]+', 'dospeli' => '[1-6]+', 'deti' => '[1-6]+', 'pokoju' => '[1-6]+', 'stranka' => '[0-9]+']);
 Route::get('/hledat/{destinace}/{termin_od}/{termin_do}/{dospeli}-{deti}-{pokoju}', ['uses' => 'HledaniController@zobrazVysledek', 'as' => 'hledani.zobraz'])->where(
-['destinace' => '[a-zA-Z_]+', 'termin_od' => '[0-9.]+', 'termin_do' => '[0-9.]+', 'dospeli' => '[1-6]+', 'deti' => '[1-6]+', 'pokoju' => '[1-6]+']);
+['destinace' => '[a-zA-Z_]+', 'termin_od' => '[0-9-]+', 'termin_do' => '[0-9-]+', 'dospeli' => '[1-6]+', 'deti' => '[1-6]+', 'pokoju' => '[1-6]+']);
 
 /*
   DETAIL DOVOLENÉ
@@ -33,13 +33,14 @@ Route::get('/dovolena/{seo_titulek}', ['uses' => 'DovolenaController@index', 'as
 */
 Route::get('/nabidka/{stranka}', ['uses' => 'NabidkaController@zobraz', 'as' => 'dovolena.zobraz'])->where('stranka', '[0-9]+');
 Route::get('/nabidka/{destinace}-{cena_min}-{cena_max}-{akce}-{lm}', ['uses' => 'NabidkaController@zobrazFiltr', 'as' => 'dovolena.zobraz'])->where(
-['destinace' => '[a-zA-Z_]+', 'cena_min' => '[0-9]+', 'cena_max' => '[0-9]+', 'akce' => '[0-9]+', 'lm' => '[0-9]+']);
+['destinace' => '[-0-9a-zA-Z_]+', 'cena_min' => '[0-9]+', 'cena_max' => '[0-9]+', 'akce' => '[0-9]+', 'lm' => '[0-9]+']);
 Route::get('/nabidka/{destinace}-{cena_min}-{cena_max}-{akce}-{lm}/{stranka}', ['uses' => 'NabidkaController@zobrazFiltr', 'as' => 'dovolena.zobraz'])->where(
-['destinace' => '[a-zA-Z_]+', 'cena_min' => '[0-9]+', 'cena_max' => '[0-9]+', 'akce' => '[0-1]+', 'lm' => '[0-1]+', 'stranka' => '[0-9]+']);
+['destinace' => '[-0-9a-zA-Z_]+', 'cena_min' => '[0-9]+', 'cena_max' => '[0-9]+', 'akce' => '[0-1]+', 'lm' => '[0-1]+', 'stranka' => '[0-9]+']);
 
 /*
   ZPRACOVÁNÍ FORMULÁŘŮ - POST
 */
+Route::post('/hledat', ['uses' => 'HledaniController@zadani', 'as' => 'hledani.zadani']);
 Route::post('/registrace', ['uses' => 'WebController@Registrace', 'as' => 'web.Registrace']);
 Route::post('/nabidka', ['uses' => 'NabidkaController@filtrovaniParametru', 'as' => 'web.filtrovaniParametru']);
 Route::post('/', ['uses' => 'WebController@hledanidovolene', 'as' => 'web.hledanidovolene']);
