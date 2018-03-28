@@ -8,6 +8,7 @@
 			<div class="faqs-top-grids">
 				<div class="product-grids">
 					<div class="col-md-3 product-left">
+          {{ Form::open(array('url' => '/nabidka')) }}
             <div class="h-class">
 							<h5>Destinace</h5>
               
@@ -45,13 +46,13 @@
 							<h5>Ostatní</h5>
 							<div class="hotel-price">
 								<label class="check">
-									<input type="checkbox" data-track="HOT:SR:StarRating:5Star">
+									<input type="checkbox" name="akce" value="1">
 									<span class="p-day-grid">Akce</span>
 								</label>
 							</div>
 							<div class="hotel-price">
 								<label class="check">
-									<input type="checkbox">
+									<input type="checkbox" name="lm" value="1">
 									<span class="p-day-grid">Last minute</span>
 								</label>
 							</div>
@@ -62,186 +63,54 @@
 								<span><input type="Submit" value="Vyhledat"></span>
 							</div>
             </div>
+            {{ Form::close() }}
 					</div>
           
 					<div class="col-md-9 product-right">
-						<div class="product-right-grids">
-							<div class="product-right-top">
-								<div class="p-left">
-									<div class="p-right-img">
-										<a href="p-single.html"> </a>
-									</div>
-								</div>
-								<div class="p-right">
-									<div class="col-md-6 p-right-left">
-										<a href="p-single.html">Lorem ipsum dolor sit amet</a>
-										<div class="p-right-price">
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-										</div>
-										<p>Vestibulum molestie id orci eget vulputate</p>
-										<p class="p-call">+1 234 567 890</p>
-									</div>
-									<div class="col-md-6 p-right-right">
-										<h6>Rating : 4.1/5</h6>
-										<p>(123) Views</p>
-										<span class="p-offer">$140</span><span class="p-last-price">$230</span>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>	
-						</div><div class="product-right-grids">
-							<div class="product-right-top">
-								<div class="p-left">
-									<div class="p-right-img p-right-img1">
-										<a href="p-single.html"> </a>
-									</div>
-								</div>
-								<div class="p-right">
-									<div class="col-md-6 p-right-left">
-										<a href="p-single.html">Lorem ipsum dolor sit amet</a>
-										<div class="p-right-price">
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-										</div>
-										<p>Vestibulum molestie id orci eget vulputate</p>
-										<p class="p-call">+1 234 567 890</p>
-									</div>
-									<div class="col-md-6 p-right-right">
-										<h6>Rating : 4.1/5</h6>
-										<p>(123) Views</p>
-										<span class="p-offer">$240</span><span class="p-last-price">$430</span>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>	
-						</div>
+            @isset($dovolene)
+              @foreach ($dovolene as $dovolena)
+                <div class="product-right-grids">
+  							<div class="product-right-top">
+  								<div class="p-left">
+  									<div class="p-right-img">
+  										<a href="p-single.html"> </a>
+  									</div>
+  								</div>
+  								<div class="p-right">
+  									<div class="col-md-6 p-right-left">
+  										<a href="p-single.html">{{ $dovolena->Titulek }}</a>
+  										<div class="p-right-price">
+  											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  										</div>
+  										<p>{{ $dovolena->Popisek_kratky }}</p>
+  									</div>
+                    
+  									<div class="col-md-6 p-right-right">
+  										<h6>Cena : {{ $dovolena->Cena }} Kč</h6>
+  										@if ($dovolena->Cena_pred > 0)
+                        <span class="p-last-price">{{ $dovolena->Cena_pred }} Kč</span>
+                      @endif
+  									</div>
+  									<div class="clearfix"> </div>
+  								</div>
+  								<div class="clearfix"> </div>
+  							</div>	
+               </div>  
+              @endforeach
+            @else
+              <h3>{{ $chyba }}</h3>
+            @endisset
             
-						<div class="product-right-grids">
-							<div class="product-right-top">
-								<div class="p-left">
-									<div class="p-right-img p-right-img2">
-										<a href="p-single.html"> </a>
-									</div>
-								</div>
-								<div class="p-right">
-									<div class="col-md-6 p-right-left">
-										<a href="p-single.html">Lorem ipsum dolor sit amet</a>
-										<div class="p-right-price">
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-										</div>
-										<p>Vestibulum molestie id orci eget vulputate</p>
-										<p class="p-call">+1 234 567 890</p>
-									</div>
-									<div class="col-md-6 p-right-right">
-										<h6>Rating : 4.1/5</h6>
-										<p>(123) Views</p>
-										<span class="p-offer">$120</span><span class="p-last-price">$310</span>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>	
-						</div>
-            
-						<div class="product-right-grids">
-							<div class="product-right-top">
-								<div class="p-left">
-									<div class="p-right-img p-right-img3">
-										<a href="p-single.html"> </a>
-									</div>
-								</div>
-								<div class="p-right">
-									<div class="col-md-6 p-right-left">
-										<a href="p-single.html">Lorem ipsum dolor sit amet</a>
-										<div class="p-right-price">
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-										</div>
-										<p>Vestibulum molestie id orci eget vulputate</p>
-										<p class="p-call">+1 234 567 890</p>
-									</div>
-									<div class="col-md-6 p-right-right">
-										<h6>Rating : 4.1/5</h6>
-										<p>(123) Views</p>
-										<span class="p-offer">$140</span><span class="p-last-price">$230</span>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>	
-						</div>
-            
-						<div class="product-right-grids">
-							<div class="product-right-top">
-								<div class="p-left">
-									<div class="p-right-img p-right-img1">
-										<a href="p-single.html"> </a>
-									</div>
-								</div>
-								<div class="p-right">
-									<div class="col-md-6 p-right-left">
-										<a href="p-single.html">Lorem ipsum dolor sit amet</a>
-										<div class="p-right-price">
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-										</div>
-										<p>Vestibulum molestie id orci eget vulputate</p>
-										<p class="p-call">+1 234 567 890</p>
-									</div>
-									<div class="col-md-6 p-right-right">
-										<h6>Rating : 4.1/5</h6>
-										<p>(123) Views</p>
-										<span class="p-offer">$380</span><span class="p-last-price">$540</span>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>	
-						</div>
-            
-						<div class="product-right-grids">
-							<div class="product-right-top">
-								<div class="p-left">
-									<div class="p-right-img p-right-img2">
-										<a href="p-single.html"> </a>
-									</div>
-								</div>
-								<div class="p-right">
-									<div class="col-md-6 p-right-left">
-										<a href="p-single.html">Lorem ipsum dolor sit amet</a>
-										<div class="p-right-price">
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-											<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-										</div>
-										<p>Vestibulum molestie id orci eget vulputate</p>
-										<p class="p-call">+1 234 567 890</p>
-									</div>
-									<div class="col-md-6 p-right-right">
-										<h6>Rating : 4.1/5</h6>
-										<p>(123) Views</p>
-										<span class="p-offer">$360</span><span class="p-last-price">$750</span>
-									</div>
-									<div class="clearfix"> </div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>	
-						</div>
+            @if ($stranek >0)
+              <div id="strankovani">
+                @for ($i = 1; $i <= $stranek; $i++)
+                  <a href="#">{{ $i }}</a>
+                @endfor
+              </div>
+            @endif
 					</div>
 					<div class="clearfix"> </div>
 				</div>

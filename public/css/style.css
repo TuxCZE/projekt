@@ -2878,3 +2878,16 @@ span.menu {
 		padding: 0;
 	}
 }	
+#strankovani {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+}
+
+#strankovani a, #strankovani a:link, #strankovani a:active, #strankovani a:visited {
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  padding-left: 2px;
+  padding-right: 2px;
+}
