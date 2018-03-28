@@ -148,5 +148,13 @@
         } else return $this->RegChyba("Chybně vyplněná položka jméno! (Text je kratrší jak 2 znaky)"); 
       }
     }
+    
+    public function odhlasit()
+    {
+      session()->forget('email');
+      session()->forget('hash');
+      
+      return redirect('/');  
+    }
   }
 ?>

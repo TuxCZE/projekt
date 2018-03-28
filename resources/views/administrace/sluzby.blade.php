@@ -1,16 +1,16 @@
-@extends('rozvrzeni.stranka')
+@extends('rozvrzeni.administrace')
 @section('content')
-  
-  <!-- banner-bottom -->
+
+	<!-- banner-bottom -->
 	<div class="banner-bottom">
 		<!-- container -->
 		<div class="container">
 			<div class="about-info">
-				<h2>Můj účet</h2>
+				<h2>Administrace - Služby</h2>
 			</div>
       
 			<div class="faqs-top-grids terms-grids">	
-				test
+			 Služby
 			</div>
 		</div>
 		<!-- //container -->

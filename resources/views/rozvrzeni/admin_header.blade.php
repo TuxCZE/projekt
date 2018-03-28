@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="header-grids">
 				<div class="logo">
-					<h1><a  href="/"><span>Název</span>Cestovky</a></h1>
+					<h1><a  href="index.html"><span>Název</span>Cestovky</a> - Administrace</h1>
 				</div>
 				<!--navbar-header-->
 				<div class="header-dropdown">
@@ -44,47 +44,17 @@
 				</div>
         
 				<div class="dropdown-grids">
-						<div id="loginContainer">
-              @if (session("email") == "")
-                <a href="#" id="loginButton"><span>Přihlášení</span></a>
-              @else
-                <a href="#" id="loginButton"><span>Můj účet</span></a>
-              @endif
-              
+						<div id="loginContainer"><a href="#" id="loginButton"><span>Přihlášen</span></a>
 							<div id="loginBox">                
-                {{ Form::open(array('url' => '/prihlaseni', 'id' => 'loginForm')) }}
-                  @if (session("email") == "")
+                {{ Form::open(array('url' => '/administrace/uvod', 'id' => 'loginForm')) }}
 									<div class="login-grids">
 										<div class="login-grid-left">
-											<fieldset id="body">
-												<fieldset>
-													<label for="email">Emailová adresa</label>
-													<input type="text" name="log_email" id="email">
-												</fieldset>
-                        
-												<fieldset>
-													<label for="password">Heslo</label>
-													<input type="password" name="log_heslo" id="password">
-												</fieldset>
-                        
-												<input type="submit" id="login" value="Přihlásit se">
-												<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Zapamatovat</i></label>
-											</fieldset>
-                      
-											<span><a href="#">Zapomenuté heslo?</a></span>
-										</div>
-									</div>
-                 @else
-                  <div class="login-grids">
-										<div class="login-grid-left">
                       <div id="administrace_menu">
-                        <span><a href="#">Přehled objednávek</a></span>
                         <span><a href="#">Editace účtu</a></span>
                         <span><a href="/odhlaseni">Odhlásit se</a></span>
                       </div>
 										</div>
 									</div>
-                 @endif
 								{{ Form::close() }}
 							</div>
 						</div>

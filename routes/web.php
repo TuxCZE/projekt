@@ -15,6 +15,7 @@ Route::get('/registrace', ['uses' => 'WebController@regform', 'as' => 'web.regfo
 Route::get('/prihlaseni', ['uses' => 'WebController@logForm', 'as' => 'web.logForm']);
 Route::post('/prihlaseni', ['uses' => 'WebController@Prihlaseni', 'as' => 'web.Prihlaseni']);
 Route::get('/ucet', ['uses' => 'WebController@ucet', 'as' => 'web.ucet'])->middleware('prihlasenyuzivatel');
+Route::get('/odhlaseni', ['uses' => 'WebController@odhlasit', 'as' => 'web.odhlasit']);
 
 //Hledání
 Route::get('/hledat/{destinace}/{termin_od}/{termin_do}/{dospeli}-{deti}-{pokoju}/{stranka}', ['uses' => 'HledaniController@zobrazVysledek', 'as' => 'hledani.zobraz'])->where(
@@ -47,8 +48,13 @@ Route::post('/', ['uses' => 'WebController@hledanidovolene', 'as' => 'web.hledan
   ADMINISTRACE
 */
 Route::get('/administrace', ['uses' => 'AdminController@prihlaseni', 'as' => 'admin.prihlaseni']);
-Route::get('/administrace/uvod', ['uses' => 'AdminController@uvod', 'as' => 'admin.uvod']);
-Route::get('/administrace/dovolene', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene']);
-Route::get('/administrace/uzivatele', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele']);
-Route::get('/administrace/sluzby', ['uses' => 'AdminController@sluzby', 'as' => 'admin.sluzby']);
-Route::get('/administrace/kontakt', ['uses' => 'AdminController@kontakt', 'as' => 'admin.kontakt']);
+Route::get('/administrace/uvod', ['uses' => 'AdminController@uvod', 'as' => 'admin.uvod'])->middleware('prihlasenyuzivatel', 'admin');
+
+Route::get('/administrace/dovolene', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene'])->middleware('prihlasenyuzivatel', 'admin');
+Route::get('/administrace/dovolene/{stranka}', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene'])->where('stranka', '[0-9]+');
+
+Route::get('/administrace/uzivatele', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele'])->middleware('prihlasenyuzivatel', 'admin');
+Route::get('/administrace/uzivatele/{stranka}', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele'])->where('stranka', '[0-9]+');
+
+Route::get('/administrace/sluzby', ['uses' => 'AdminController@sluzby', 'as' => 'admin.sluzby'])->middleware('prihlasenyuzivatel', 'admin');
+Route::get('/administrace/kontakt', ['uses' => 'AdminController@kontakt', 'as' => 'admin.kontakt'])->middleware('prihlasenyuzivatel', 'admin');

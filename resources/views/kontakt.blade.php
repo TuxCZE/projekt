@@ -51,7 +51,7 @@
 						<div class="col-md-5 contact-map">
 							<h5>Umístění pobočky</h5>
 							<div class="map">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d59247.84555941436!2d-74.00101359585908!3d40.691888370076846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1440747755360" allowfullscreen=""></iframe>
+							<iframe width="720" height="420" src="https://maps.google.com/maps?width=720&amp;height=420&amp;hl=en&amp;q=Brno%2C%20b%C4%9Blorusk%C3%A1+(Cestovka)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/create-google-map/">Embed Google Map</a></iframe>
 							</div>
 						</div>
 						<div class="clearfix"> </div>

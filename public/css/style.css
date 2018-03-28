@@ -2897,3 +2897,25 @@ span.menu {
   font-size: 17px;
   color: red;  
 }
+#administrace_menu {
+  width: 100%;
+  text-align: center;
+}
+#paticka_stred {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;  
+  color: white;
+  background-color: rgb(111, 213, 8);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+#paticka_stred a, #paticka_stred a:link, #paticka_stred a:active, #paticka_stred a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.tucne {
+  font-weight: bold;
+}
