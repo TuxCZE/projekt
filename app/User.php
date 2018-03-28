@@ -15,7 +15,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'heslo', 'prava',
+        'jmeno',
+        'prijmeni',
+        'telefon',
+        'email', 
+        'heslo', 
+        'prava',
     ];
 
     /**
@@ -26,4 +31,9 @@ class User extends Authenticatable
     protected $hidden = [
         'heslo', 'remember_token',
     ];
+    
+    public function nastavHeslo($heslo)
+    {
+        $this->attributes['heslo'] = "l1" . sha1($heslo . "47") . "web";
+    }
 }

@@ -43,6 +43,7 @@ Route::get('/scripty/{nazev_kat}/{ID}-{nazev_scriptu}', ['uses' =>'ScriptyContro
 /*
   ZPRACOVÁNÍ FORMULÁŘŮ - POST
 */
+Route::post('/registrace', ['uses' => 'WebController@Registrace', 'as' => 'web.Registrace']);
 Route::post('/nabidka', ['uses' => 'NabidkaController@filtrovaniParametru', 'as' => 'web.filtrovaniParametru']);
 Route::post('/', ['uses' => 'WebController@hledanidovolene', 'as' => 'web.hledanidovolene']);
 

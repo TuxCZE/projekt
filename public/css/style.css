@@ -2891,3 +2891,9 @@ span.menu {
   padding-left: 2px;
   padding-right: 2px;
 }
+#vrsek_chyba {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  color: red;  
+}
