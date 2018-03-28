@@ -9,6 +9,7 @@ Route::get('/lastminute', ['uses' => 'LMController@index', 'as' => 'lm.index']);
 Route::get('/destinace', ['uses' => 'WebController@destinace', 'as' => 'web.destinace']);
 Route::get('/sluzby', ['uses' => 'WebController@sluzby', 'as' => 'web.sluzby']);
 Route::get('/kontakt', ['uses' => 'WebController@kontakt', 'as' => 'web.kontakt']);
+Route::get('/registrace', ['uses' => 'WebController@regform', 'as' => 'web.regform']);
 
 /*
   DETAIL DOVOLENÉ

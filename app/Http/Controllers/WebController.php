@@ -37,10 +37,23 @@
       return view('kontakt', $this->VratMenu(4));
     }
     
+    public function regform()
+    {
+      return view('registrace', $this->VratMenu(0));
+    }
+    
     /*
       ZPRACOVÁNÍ FORMULÁŘE Z ÚVODNÍ STRÁNKY
     */
     public function hledanidovolene()
+    {
+    }
+    
+    public function Prihlaseni()
+    {
+    }
+    
+    public function Registrace()
     {
     }
   }
