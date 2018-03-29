@@ -31,8 +31,20 @@
                 <td><a href="#">Upravit</a> | <a href="#">Smazat</a></td>
               </tr>
             @endforeach
+            
+            @if (count($dovolene) < 1)
+              <tr>
+                <td colspan="5" align="center">Zatím nebyla přidaná žádná dovolená!</td>
+              </tr>
+            @endif
         	</tbody>
         </table>
+        
+        <div id="strankovani">
+          @for ($i = 1; $i <= $max_stranek; $i++)
+            <a href="/administrace/dovolene/{{ $i }}">{{ $i }}</a>    
+          @endfor
+        </div>
 			</div>
 		</div>
 		<!-- //container -->

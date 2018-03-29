@@ -31,8 +31,20 @@
                 <td><a hred="#">Upravit</a> | <a hred="#">Smazat</a></td>
               </tr>
             @endforeach
+            
+            @if (count($uzivatele) < 1)
+              <tr>
+                <td colspan="5" align="center">Nebyl nalezen žádný uživatel!</td>
+              </tr>
+            @endif
         	</tbody>
         </table>
+        
+        <div id="strankovani">
+          @for ($i = 1; $i <= $max_stranek; $i++)
+            <a href="/administrace/uzivatele/{{ $i }}">{{ $i }}</a>    
+          @endfor
+        </div>
 			</div>
 		</div>
 		<!-- //container -->

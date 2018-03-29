@@ -10,10 +10,10 @@
 			</div>
       
 			<div class="faqs-top-grids terms-grids">	
-				<strong>Celkem dovolených: </strong>0<br />
-        <strong>Registovaných uzivatelů: </strong>0<br />
-        <strong>Aktivovaných uzivatelů: </strong>0<br />
-        <strong>Počet objednávek: </strong>0
+				<strong>Celkem dovolených: </strong>{{ $info[0] }}<br />
+        <strong>Registovaných uzivatelů: </strong>{{ $info[1] }}<br />
+        <strong>Aktivovaných uzivatelů: </strong>{{ $info[2] }}<br />
+        <strong>Počet objednávek: </strong>{{ $info[3] }}
 			</div>
 		</div>
 		<!-- //container -->

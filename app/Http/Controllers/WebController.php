@@ -29,12 +29,12 @@
     
     public function sluzby()
     {
-      return view('sluzby', $this->VratMenu(3));
+      return view('sluzby', $this->VratMenu(2));
     }
     
     public function kontakt()
     {
-      return view('kontakt', $this->VratMenu(4));
+      return view('kontakt', $this->VratMenu(3));
     }
     
     public function regform()
