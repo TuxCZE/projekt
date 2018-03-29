@@ -36,35 +36,35 @@
     
       return view("administrace.uvod", $this->VratMenu(0), ['uzivatel' => session("email"), 'pat_text' => "", 'info' => $info]);
     }
-      
-    public function dovolene($stranka = 1)
+    
+    public function VratObsahTabulky($nazev, $nazev_prommene, $stranka)
     {
-      $dovolene_celkem = DB::table('dovolene')->count();
-      $stranky_pocet = ceil($dovolene_celkem / $this->na_stranku);
+      $obsah_celkem =  DB::table($nazev)->count();
+      $stranky_pocet = ceil($obsah_celkem / $this->na_stranku);
       
       if($stranka < 0 || $stranka > $stranky_pocet) $stranka = 1;
       $od = ($stranka - 1) * $this->na_stranku;   
-       
-      $dovolene = DB::table('dovolene')->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get(); 
+      
+      $obsah = DB::table($nazev)->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get(); 
+      
+      return ['max_stranek' => $stranky_pocet, $nazev_prommene => $obsah];
+    }
+      
+    public function dovolene($stranka = 1)
+    {
+      $vysledek = array_merge($this->VratMenu(1), $this->VratObsahTabulky('dovolene', 'dovolene', $stranka));
       
       $paticka_text = "Přidat novou dovolenou";
       $paticka_odkaz = "/administrace/dovolene/pridat";
     
-      return view("administrace.dovolene", $this->VratMenu(1), ['uzivatel' => session("email"), 'dovolene' => $dovolene, 'pat_text' => $paticka_text, 'pat_odkaz' => $paticka_odkaz,
-      'max_stranek' => $stranky_pocet]);
+      return view("administrace.dovolene", $vysledek, ['uzivatel' => session("email"),  'pat_text' => $paticka_text, 'pat_odkaz' => $paticka_odkaz]);
     }
       
     public function uzivatele($stranka = 1)
     {
-      $uziv_celkem = DB::table('uzivatele')->count();
-      $stranky_pocet = ceil($uziv_celkem / $this->na_stranku);
-      
-      if($stranka < 0 || $stranka > $stranky_pocet) $stranka = 1;
-      $od = ($stranka - 1) * $this->na_stranku; 
-      
-      $uzivatele = DB::table('uzivatele')->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get(); 
+      $vysledek = array_merge($this->VratMenu(2), $this->VratObsahTabulky('uzivatele', 'uzivatele', $stranka));
     
-      return view("administrace.uzivatele", $this->VratMenu(2), ['uzivatel' => session("email"), 'pat_text' => "", 'uzivatele' => $uzivatele, 'max_stranek' => $stranky_pocet]);
+      return view("administrace.uzivatele", $vysledek, ['uzivatel' => session("email"), 'pat_text' => ""]);
     }
       
     public function sluzby()
@@ -74,15 +74,9 @@
       
     public function kontakt($stranka = 1)
     {
-      $kontakt_celkem = DB::table('kontakt')->count();                                                        
-      $stranky_pocet = ceil($kontakt_celkem / $this->na_stranku);
-      
-      if($stranka < 0 || $stranka > $stranky_pocet) $stranka = 1;
-      $od = ($stranka - 1) * $this->na_stranku; 
-      
-      $zpravy = DB::table('kontakt')->orderBy('ID', 'desc')->skip($od)->take($this->na_stranku)->get(); 
+      $vysledek = array_merge($this->VratMenu(4), $this->VratObsahTabulky('kontakt', 'kontakt_zpravy', $stranka));
     
-      return view("administrace.kontakt", $this->VratMenu(4), ['uzivatel' => session("email"), 'pat_text' => "", 'kontakt_zpravy' => $zpravy, 'max_stranek' => $stranky_pocet]);
+      return view("administrace.kontakt", $vysledek, ['uzivatel' => session("email"), 'pat_text' => ""]);
     }
     
     public function pridaniDovolene()
