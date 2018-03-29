@@ -84,5 +84,39 @@
     
       return view("administrace.kontakt", $this->VratMenu(4), ['uzivatel' => session("email"), 'pat_text' => "", 'kontakt_zpravy' => $zpravy, 'max_stranek' => $stranky_pocet]);
     }
+    
+    public function pridaniDovolene()
+    {
+      $destinace = DB::select('select * from destinace ORDER BY ID ASC');
+      
+      $termin = array();
+      $termin[] = date('Y-m-d');
+      $termin[] = date('Y-m-d', strtotime($termin[0]. ' + 7 days'));
+    
+      return view("administrace.dovolena_pridat", $this->VratMenu(1), ['uzivatel' => session("email"), 'pat_text' => "", 'destinace' => $destinace, 'termin' => $termin]);
+    }
+    
+    public function pridejDovolenou()
+    {
+      $umisteni_nahrani = "/images/"; 
+      
+      if(isset($_POST["dov_titulek"])){
+        $destinace = $_POST["dov_destinace"];
+        $titulek = $_POST["dov_titulek"];
+        $seo_url = $_POST["dov_seourl"];  
+        
+        $kratky_popisek = $_POST["dov_kpopisek"];  
+        $popisek = $_POST["dov_popisek"];  
+        
+        $cena = $_POST["dov_cena"];  
+        $cena_pred = $_POST["dov_cenapred"];  
+        
+        $dovolena_od = $_POST["dov_od"];  
+        $dovolena_do = $_POST["dov_do"];  
+        
+        $pokoj_max = $_POST["dov_maxpokoj"];  
+        $lastminute = $_POST["dov_lastmin"];  
+      }
+    }
   }
 ?>

@@ -53,9 +53,15 @@ Route::get('/administrace/uvod', ['uses' => 'AdminController@uvod', 'as' => 'adm
 
 Route::get('/administrace/dovolene', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene'])->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/dovolene/{stranka}', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene'])->where('stranka', '[0-9]+');
+Route::get('/administrace/dovolene/pridat', ['uses' => 'AdminController@pridaniDovolene', 'as' => 'admin.pridaniDovolene'])->middleware('prihlasenyuzivatel', 'admin');
 
 Route::get('/administrace/uzivatele', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele'])->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/uzivatele/{stranka}', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele'])->where('stranka', '[0-9]+');
 
 Route::get('/administrace/sluzby', ['uses' => 'AdminController@sluzby', 'as' => 'admin.sluzby'])->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/kontakt', ['uses' => 'AdminController@kontakt', 'as' => 'admin.kontakt'])->middleware('prihlasenyuzivatel', 'admin');
+
+/*
+  ADMINISTRACE- ZPRACOVÁNÍ POST POŽADAVKŮ
+*/
+Route::post('/administrace/dovolene/pridat', ['uses' => 'AdminController@pridejDovolenou', 'as' => 'admin.pridejDovolenou']);

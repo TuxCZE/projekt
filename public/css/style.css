@@ -2930,3 +2930,18 @@ input.hledat_tl {
   padding-left: 10px;
   padding-right: 10px;
 }
+
+#tlacitko_admin {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;  
+  color: white;
+  background-color: rgb(111, 213, 8);
+  margin-top: 10px;
+}
+
+input[type=submit]#tlacitko_admin {
+    color: white;
+}
+
+#pridani_dovolene {color: white;}
