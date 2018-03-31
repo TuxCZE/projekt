@@ -2,21 +2,23 @@
   namespace App\Http\Controllers;
   
   use Illuminate\Support\Facades\DB;
+  use App\Dovolene;
+  use App\Menu;
   
   class WebController extends Controller
   {
     public function VratMenu($id_vybrane)
     {
-      $menu = DB::select('select * from menu ORDER BY ID ASC');
+      $menu = Menu::all();
       
       return ['menu' => $menu, 'menu_vybrane' => $id_vybrane];
     }
   
     public function index()
     {
-       $menu = DB::select('select * from menu ORDER BY ID ASC');
+        $dovolene = Dovolene::select()->orderByRaw('(Cena_pred - Cena) DESC')->take(9)->get();
     
-        return view('uvod', $this->VratMenu(0));
+        return view('uvod', $this->VratMenu(0), ['dovolene_top' => $dovolene]);
     }
     
     public function destinace()

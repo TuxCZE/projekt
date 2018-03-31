@@ -9,11 +9,6 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'jmeno',
         'prijmeni',
@@ -23,14 +18,11 @@ class User extends Authenticatable
         'prava',
     ];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'heslo', 'remember_token',
     ];
+    
+    protected $table = 'uzivatele';
     
     public function nastavHeslo($heslo)
     {
