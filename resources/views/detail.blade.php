@@ -108,7 +108,7 @@
                     <h4>{{ $dovolena->Cena }} Kč</h4>
                   @endif
 									<p class="best-pri">Nejlepší cena</p>
-									<a class="best-btn" href="booking.html">Objednat</a>
+									<a class="best-btn" href="/objednat/{{ $dovolena->ID }}">Objednat</a>
 								</div>
 							</div>
               

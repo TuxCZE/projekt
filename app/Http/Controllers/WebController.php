@@ -16,9 +16,10 @@
   
     public function index()
     {
+        $destinace_vse = DB::select('select * from destinace ORDER BY ID ASC');
         $dovolene = Dovolene::select()->orderByRaw('(Cena_pred - Cena) DESC')->take(9)->get();
     
-        return view('uvod', $this->VratMenu(0), ['dovolene_top' => $dovolene]);
+        return view('uvod', $this->VratMenu(0), ['dovolene_top' => $dovolene, 'destinance_vse' => $destinace_vse]);
     }
     
     public function destinace()

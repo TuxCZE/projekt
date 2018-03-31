@@ -68,14 +68,15 @@
           
 					<div class="col-md-9 product-right">
             @isset($dovolene)
-              @foreach ($dovolene as $dovolena)
+              @foreach ($dovolene as $dovolena)   
                 <div class="product-right-grids">
   							<div class="product-right-top">
   								<div class="p-left">
   									<div class="p-right-img">
-  										<a href="/dovolena/{{ $dovolena->Seo_url }}"> </a>
+  										<a href="/dovolena/{{ $dovolena->Seo_url }}"><img src="images/{{ $dovolena->Obrazek }}" width="234px" height="155px"></a>
   									</div>
   								</div>
+                  
   								<div class="p-right">
   									<div class="col-md-6 p-right-left">
   										<a href="/dovolena/{{ $dovolena->Seo_url }}">{{ $dovolena->Titulek }}</a>

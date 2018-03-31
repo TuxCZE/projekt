@@ -38,6 +38,12 @@ Route::get('/nabidka/{destinace}-{cena_min}-{cena_max}-{akce}-{lm}/{stranka}', [
 ['destinace' => '[-0-9a-zA-Z_]+', 'cena_min' => '[0-9]+', 'cena_max' => '[0-9]+', 'akce' => '[0-1]+', 'lm' => '[0-1]+', 'stranka' => '[0-9]+']);
 
 /*
+  VĚCI S PARAMETRY - OBJEDNAT DOVOLENOU
+*/
+Route::get('/objednat/{ID}', ['uses' => 'ObjednavkaController@zobraz', 'as' => 'objednavka.zobraz'])->where('ID', '[0-9]+');
+Route::post('/objednat/{ID}', ['uses' => 'ObjednavkaController@zpracuj', 'as' => 'objednavka.zpracuj'])->where('ID', '[0-9]+');
+
+/*
   ZPRACOVÁNÍ FORMULÁŘŮ - POST
 */
 Route::post('/hledat', ['uses' => 'HledaniController@zadani', 'as' => 'hledani.zadani']);

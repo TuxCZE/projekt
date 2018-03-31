@@ -65,7 +65,13 @@
 																		 <h5>Destinace</h5>
 																		 <div class="book_date">
 																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-																				<input type="text" name="hledat_zem" placeholder="Země" class="typeahead1 input-md form-control tt-input" required="">
+																				<input type="text" name="hledat_zem" placeholder="Země" class="typeahead1 input-md form-control tt-input" required="" list="destinace_seznam">
+                                        
+                                        <datalist id="destinace_seznam">
+                                          @foreach ($destinance_vse as $polozka)
+                                            <option value="{{ $polozka->Nazev }}"">
+                                          @endforeach
+                                        </datalist>
 																		 </div>					
 																	 </li>
 																</ul>
