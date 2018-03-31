@@ -4,9 +4,13 @@
   use Illuminate\Support\Facades\DB;
   use App\Dovolene;
   use App\Menu;
+  use App\User;
+  use App\Objednavky;
   
   class WebController extends Controller
   {
+    private $na_stranku = 10;
+  
     public function VratMenu($id_vybrane)
     {
       $menu = Menu::all();
@@ -52,7 +56,31 @@
     
     public function ucet()
     {
-      return view('ucet', $this->VratMenu(0));
+      $uzivatel_data = User::where('Email', "=", session("email"))->get()[0];
+      $objednavky_uzivatel = count(Objednavky::where('ID_uzivatele', "=", $uzivatel_data->ID)->pluck("ID"));
+    
+      return view('ucet', $this->VratMenu(0), ['uziv_data' => $uzivatel_data, 'pocet_objednavek' => $objednavky_uzivatel]);
+    }
+    
+    public function ucetObjednavky($stranka = 1)
+    {
+      $id = User::where('Email', "=", session("email"))->pluck("ID");
+      
+      $objednavky = Objednavky::where('ID_uzivatele', "=", $id)->get();
+      $objednavky_celkem = count($objednavky);
+      $stranky_pocet = ceil($objednavky_celkem / $this->na_stranku);
+      
+       if($stranka < 0 || $stranka > $stranky_pocet) $stranka = 1;
+       $od = ($stranka - 1) * $this->na_stranku; 
+       
+       $objednavky = Objednavky::where('ID_uzivatele', "=", $id)->skip($od)->take($this->na_stranku)->get();
+    
+      return view('ucet.objednavky', $this->VratMenu(0), ['uziv_objednavky' => $objednavky, 'max_stranek' => $stranky_pocet]);
+    }
+    
+    public function ucetEditace()
+    {
+      return view('ucet.editace', $this->VratMenu(0));
     }
     
     /*

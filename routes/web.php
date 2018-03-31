@@ -14,8 +14,12 @@ Route::get('/registrace', ['uses' => 'WebController@regform', 'as' => 'web.regfo
 //Přihlášení + uživatelský panel
 Route::get('/prihlaseni', ['uses' => 'WebController@logForm', 'as' => 'web.logForm']);
 Route::post('/prihlaseni', ['uses' => 'WebController@Prihlaseni', 'as' => 'web.Prihlaseni']);
-Route::get('/ucet', ['uses' => 'WebController@ucet', 'as' => 'web.ucet'])->middleware('prihlasenyuzivatel');
 Route::get('/odhlaseni', ['uses' => 'WebController@odhlasit', 'as' => 'web.odhlasit']);
+
+Route::get('/ucet', ['uses' => 'WebController@ucet', 'as' => 'web.ucet'])->middleware('prihlasenyuzivatel');
+Route::get('/ucet/objednavky', ['uses' => 'WebController@ucetObjednavky', 'as' => 'web.ucetObjednavky'])->middleware('prihlasenyuzivatel');
+Route::get('/ucet/objednavky/{stranka}', ['uses' => 'WebController@ucetObjednavky', 'as' => 'web.ucetObjednavky'])->where('stranka', '[0-9]+')->middleware('prihlasenyuzivatel');
+Route::get('/ucet/editace', ['uses' => 'WebController@ucetEditace', 'as' => 'web.ucetEditace'])->middleware('prihlasenyuzivatel');
 
 //Hledání
 Route::get('/hledat/{destinace}/{termin_od}/{termin_do}/{dospeli}-{deti}-{pokoju}/{stranka}', ['uses' => 'HledaniController@zobrazVysledek', 'as' => 'hledani.zobraz'])->where(

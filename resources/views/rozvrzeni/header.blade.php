@@ -78,8 +78,9 @@
                   <div class="login-grids">
 										<div class="login-grid-left">
                       <div id="administrace_menu">
-                        <span><a href="#">Přehled objednávek</a></span>
-                        <span><a href="#">Editace účtu</a></span>
+                        <span><a href="/ucet">Můj účet</a></span>
+                        <span><a href="/ucet/objednavky">Přehled objednávek</a></span>
+                        <span><a href="/ucet/editace">Editace účtu</a></span>
                         <span><a href="/odhlaseni">Odhlásit se</a></span>
                         
                          @if (session("prava") > 2)

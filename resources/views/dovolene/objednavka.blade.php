@@ -1,7 +1,7 @@
 @extends('rozvrzeni.stranka')
 @section('content')
 
-  <<!-- banner-bottom -->
+  <!-- banner-bottom -->
 	<div class="banner-bottom">
 		<!-- container -->
 		<div class="container">
@@ -14,13 +14,16 @@
         <div class="opinion">	
 						{{ Form::open(array('url' => '/objednat/' . $dovolena_vybrana->ID, 'enctype' => 'multipart/form-data')) }}
 								<p>Jméno</p>
-								<input name="obj_jmeno" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input name="obj_jmeno" type="text" value="{{ $uziv_data[0] }}" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
                 
                 <p>Příjmení</p>
-								<input name="obj_prijmeni" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input name="obj_prijmeni" type="text" value="{{ $uziv_data[1] }}" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
                 
                 <p>Telefon</p>
-								<input name="obj_telefon" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input name="obj_telefon" type="text" value="{{ $uziv_data[3] }}" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                
+                <p>Email</p>
+								<input name="obj_email" type="text" value="{{ $uziv_data[2] }}" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
                 
               <h4>Adresa trvalého pobytu</h4>
               <p>Ulice</p>
