@@ -36,6 +36,7 @@
 				</section>
 				<!--FlexSlider-->
 			</div>
+      
 			<div class="col-md-8 banner-right">
 				<div class="sap_tabs">	
 					<div class="booking-info about-booking-info">
@@ -83,15 +84,15 @@
 																		 <h5>Termín OD</h5>
 																		 <div class="book_date">
 																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-																			<input type="date" name="hledat_od" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																			<input type="date" name="hledat_od" value="{{ $datum[1] }}">
 																		 </div>		
 																	 </li>
                                    
 																	 <li  class="span1_of_1 left">
 																		 <h5>Termín DO</h5>
-																		 <div class="book_date">
+																		 <div class="book_date">              
 																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-																				<input type="date" name="hledat_do" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																				<input type="date" name="hledat_do"  value="{{ $datum[0] }}">
 																		 </div>					
 																	 </li>
                                    

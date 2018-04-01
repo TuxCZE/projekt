@@ -7,6 +7,14 @@
 		<!-- container -->
     
 		<div class="container">
+      
+      @if( ! empty($chyba))
+      <div id="vrsek_chyba" class="chyba_ramecek">
+				{{ $chyba }}
+			</div>
+      <p>&nbsp;</p>
+      @endif
+    
 			<div class="banner-bottom-info">
 				<h3>TOP Nabídka</h3>
 			</div>

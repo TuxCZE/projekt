@@ -71,7 +71,10 @@
 												<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Zapamatovat</i></label>
 											</fieldset>
                       
-											<span><a href="#">Zapomenuté heslo?</a></span>
+                      <hr />
+                      <div id="administrace_menu">
+											 <span><a href="/registrace">Registrace</a></span>
+                      </div>
 										</div>
 									</div>
                  @else

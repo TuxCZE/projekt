@@ -20,10 +20,10 @@
                 </select>
                 
 								<p>Titulek</p>
-								<input name="dov_titulek" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input name="dov_titulek" type="text" value="" onblur="NaSEOUrl(this.value, document.getElementsByName('dov_seourl')[0]);">
                 
                 <p>Seo URL:</p>
-								<input name="dov_seourl" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+								<input name="dov_seourl" type="text" value=""">
                 
 								<p>Obrázek (náhled):</p>
 								<input type="file" name="dov_nahled" id="dov_nahled">

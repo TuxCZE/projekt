@@ -37,13 +37,13 @@
               
               <h4>Další osoby</h4>
               <p>Dospělí</p>
-							<input name="obj_dospeli" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+							<input name="obj_dospeli" type="number" value="0" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='0';}">
               
               <p>Děti</p>
-							<input name="obj_deti" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+							<input name="obj_deti" type="number" value="0" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='0';}">
               
               <p>Počet pokojů</p>
-							<input name="obj_pokoje" type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+							<input name="obj_pokoje" type="number" value="0" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='0';}">
                 
               <div id="tlacitko_admin">
 							 <input type="submit" id="pridani_dovolene" value="Odeslat objednávku">

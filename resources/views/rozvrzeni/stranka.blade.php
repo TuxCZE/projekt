@@ -34,6 +34,7 @@
   <!--pop-up-->
   <script src="{{ elixir('js/menu_jquery.js') }}"></script>
   <!--//pop-up-->	
+  <script src="{{ elixir('js/projekt_script.js') }}"></script>
 </head>
   <body>  
     @include('rozvrzeni.header')

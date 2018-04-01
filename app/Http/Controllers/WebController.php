@@ -22,8 +22,12 @@
     {
         $destinace_vse = DB::select('select * from destinace ORDER BY ID ASC');
         $dovolene = Dovolene::select()->orderByRaw('(Cena_pred - Cena) DESC')->take(9)->get();
+        
+        $datum = array();
+        $datum[] = date('Y-m-d');
+        $datum[] = date('Y-m-d', strtotime($datum[0] . ' - 14 days'));
     
-        return view('uvod', $this->VratMenu(0), ['dovolene_top' => $dovolene, 'destinance_vse' => $destinace_vse]);
+        return view('uvod', $this->VratMenu(0), ['dovolene_top' => $dovolene, 'destinance_vse' => $destinace_vse, 'datum' => $datum]);
     }
     
     public function destinace()

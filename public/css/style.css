@@ -1915,6 +1915,11 @@ span.starTextLabel {
     width: 70%;
     padding: 1em 0;
 }
+.p-right-obrazek a{
+  min-height: 150px;
+  display: block;
+  float: center;
+}
 .p-right-img a{
     background: url(../images/p1.jpg) no-repeat 0px 0px;
     min-height: 150px;
@@ -2945,3 +2950,9 @@ input[type=submit]#tlacitko_admin {
 }
 
 #pridani_dovolene {color: white;}
+
+.chyba_ramecek { 
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border: 1px dotted gray; 
+}        
