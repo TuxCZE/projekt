@@ -8,39 +8,49 @@
 			<div class="about-info">
 				<h2>Kontaktuje nás</h2>
 			</div>
+
 			<div class="faqs-top-grids">
+				@if ($chyba != "")
+					<div class="contact-info" style="text-align: center;">
+						<h4 style="color: red;">Upozornění</h4>
+						<p style="color: red;">{{ $chyba }}</p>
+					</div>
+
+					<p>&nbsp;</p>
+				@endif
+
 					<div class="contact-info">
 						<h4>Informace</h4>
 						<p>Kontaktovat nás můžete telefonicky, přes fomulář níže, nebo můžete navštívit přímo naši pobočku. Přesná adresa pobočky je označená na mapě vpravo od formuláře.</p>
 					</div>
-          
+
 					<div class="contact-grids">
 						<div class="col-md-7 contact-para">
 							<h5>Kontaktní formulář</h5>
 							{{ Form::open(array('url' => '/kontakt')) }}
 								<div class="grid-contact">
 									<div class="col-md-6 contact-grid">
-										<p>Jméno</p>		
-										<input type="text" name="kontakt_jmeno" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">						
+										<p>Jméno</p>
+										<input type="text" name="kontakt_jmeno" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
 										</div>
-                    
+
 									<div class="col-md-6 contact-grid">
-										<p>Příjmení</p>		
-										<input type="text" name="kontakt_prijmeni" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">						
+										<p>Příjmení</p>
+										<input type="text" name="kontakt_prijmeni" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
 										</div>
-                    
+
 									<div class="clearfix"> </div>
 								</div>
-                
+
 								<div class="grid-contact">
 									<div class="col-md-6 contact-grid">
-									<p>Email</p>						
-										<input type="text" name="kontakt_email" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">							
+									<p>Email</p>
+										<input type="text" name="kontakt_email" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
 									</div>
-                  
-									<div class="col-md-6 contact-grid">						
-									 <p>Telefon</p>						
-										<input type="text" name="kontakt_telefon" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">							
+
+									<div class="col-md-6 contact-grid">
+									 <p>Telefon</p>
+										<input type="text" name="kontakt_telefon" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
 									</div>
 									<div class="clearfix"> </div>
 								</div>
@@ -51,7 +61,7 @@
 										</div>
 							{{ Form::close() }}
 						</div>
-            
+
 						<div class="col-md-5 contact-map">
 							<h5>Umístění pobočky</h5>
 							<div class="map">
@@ -65,5 +75,5 @@
 		<!-- //container -->
 	</div>
 	<!-- //banner-bottom -->
-  
+
 @endsection
