@@ -11,17 +11,17 @@
           {{ Form::open(array('url' => '/nabidka')) }}
             <div class="h-class">
 							<h5>Destinace</h5>
-              
+
               @foreach ($destinace as $polozka_dest)
                 <div class="hotel-price">
-								<label class="check">                          
-                    <input type="radio" name="destinace_id" value="{{ $polozka_dest->ID }}" data-track="HOT:SR:Area"> 
+								<label class="check">
+                    <input type="radio" name="destinace_id" value="{{ $polozka_dest->ID }}" data-track="HOT:SR:Area">
 									<span class="p-day-grid">{{ $polozka_dest->Nazev }}</span>
 								</label>
 							</div>
               @endforeach
 						</div>
-            
+
 						<div class="h-class p-day">
 							<h5>Minimální cena</h5>
 							<div class="hotel-price">
@@ -31,7 +31,7 @@
 								</label>
 							</div>
 						</div>
-            
+
             <div class="h-class p-day">
 							<h5>Maximální cena</h5>
 							<div class="hotel-price">
@@ -41,7 +41,7 @@
 								</label>
 							</div>
 						</div>
-            
+
 						<div class="h-class p-day">
 							<h5>Ostatní</h5>
 							<div class="hotel-price">
@@ -57,7 +57,7 @@
 								</label>
 							</div>
 						</div>
-            
+
             <div class="h-class p-day">
               	<div class="hotel-price">
 								<span><input type="Submit" value="Vyhledat"></span>
@@ -65,18 +65,18 @@
             </div>
             {{ Form::close() }}
 					</div>
-          
+
 					<div class="col-md-9 product-right">
             @isset($dovolene)
-              @foreach ($dovolene as $dovolena)   
+              @foreach ($dovolene as $dovolena)
                 <div class="product-right-grids">
   							<div class="product-right-top">
   								<div class="p-left">
   									<div class="p-right-img">
-  										<a href="/dovolena/{{ $dovolena->Seo_url }}"><img src="images/{{ $dovolena->Obrazek }}" width="234px" height="155px"></a>
+  										<a href="/dovolena/{{ $dovolena->Seo_url }}"><img src="/images/{{ $dovolena->Obrazek }}" width="234px" height="155px"></a>
   									</div>
   								</div>
-                  
+
   								<div class="p-right">
   									<div class="col-md-6 p-right-left">
   										<a href="/dovolena/{{ $dovolena->Seo_url }}">{{ $dovolena->Titulek }}</a>
@@ -88,7 +88,7 @@
   										</div>
   										<p>{{ $dovolena->Popisek_kratky }}</p>
   									</div>
-                    
+
   									<div class="col-md-6 p-right-right">
   										<h6>Cena : {{ $dovolena->Cena }} Kč</h6>
   										@if ($dovolena->Cena_pred > 0)
@@ -98,13 +98,13 @@
   									<div class="clearfix"> </div>
   								</div>
   								<div class="clearfix"> </div>
-  							</div>	
-               </div>  
+  							</div>
+               </div>
               @endforeach
             @else
               <h3>{{ $chyba }}</h3>
             @endisset
-            
+
             @if ($stranek >0)
               <div id="strankovani">
                 @for ($i = 1; $i <= $stranek; $i++)
@@ -120,5 +120,5 @@
 		<!-- //container -->
 	</div>
 	<!-- //banner-bottom -->
-  
+
 @endsection
