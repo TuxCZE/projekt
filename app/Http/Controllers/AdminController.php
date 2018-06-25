@@ -67,9 +67,34 @@
       return view("administrace.uzivatele", $vysledek, ['uzivatel' => session("email"), 'pat_text' => ""]);
     }
 
+    public function UpravUzivatele($ID)
+    {
+
+    }
+
+    public function SmazUzivatele($ID)
+    {
+
+    }
+
     public function sluzby()
     {
-      return view("administrace.sluzby", $this->VratMenu(3), ['uzivatel' => session("email"), 'pat_text' => ""]);
+      $sluzby_text = DB::table("jednostrankove")->where('Nazev', "=", "sluzby")->get()[0];
+
+      return view("administrace.sluzby", $this->VratMenu(3), ['uzivatel' => session("email"), 'pat_text' => "", 'sluzby_text' => $sluzby_text->Text]);
+    }
+
+    public function upravSluzby()
+    {
+      $text = $_POST["sluzby_text"];
+
+      if(strlen($text) > 10){
+         DB::table("jednostrankove")->where('Nazev', "=", "sluzby")->update([
+          'Nazev' => "sluzby",
+          'Text' => $text]);
+
+          return redirect('/administrace/sluzby');
+      }
     }
 
     public function kontakt($stranka = 1)
@@ -77,6 +102,16 @@
       $vysledek = array_merge($this->VratMenu(4), $this->VratObsahTabulky('kontakt', 'kontakt_zpravy', $stranka));
 
       return view("administrace.kontakt", $vysledek, ['uzivatel' => session("email"), 'pat_text' => ""]);
+    }
+
+    public function zobrazKontakt($ID)
+    {
+
+    }
+
+    public function smazKontakt($ID)
+    {
+
     }
 
     public function pridaniDovolene()
@@ -152,6 +187,16 @@
           }
         }
       }
+    }
+
+    public function smazatDovolenou($ID)
+    {
+
+    }
+
+    public function upravitDovolenou($ID)
+    {
+
     }
   }
 ?>

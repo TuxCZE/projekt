@@ -18,7 +18,7 @@ body a{
 	text-decoration:none;
 }
 h1,h2,h3,h4,h5,h6{
-	margin:0;			   
+	margin:0;
 }
 p{
 	margin:0;
@@ -84,7 +84,7 @@ nav.navbar.navbar-default {
 }
 .top-nav ul li a:hover{
 	background:#6fd508;
-	color:#FFF;	
+	color:#FFF;
 	border: solid 1px #6fd508;
 }
 .top-nav ul li a{
@@ -113,7 +113,7 @@ nav.navbar.navbar-default {
     padding: .5em 2em;
     color: #FFF;
 }
-#loginButton {  
+#loginButton {
     position:relative;
     z-index:30;
     cursor:pointer;
@@ -158,7 +158,7 @@ fieldset#body {
     float:left;
     padding:0;
     border:0;
-    *margin:-3px 9px 0 0; 
+    *margin:-3px 9px 0 0;
 }
 #body label {
     color:#87807c;
@@ -391,7 +391,7 @@ i.resp-tab-item.lost {
 .resp-tab-item:hover {
     background: #f9f9f9;
     text-shadow: none;
-    color: #2B2B2B;	
+    color: #2B2B2B;
 }
 .resp-tab-active {
     background: #6fd508;
@@ -1049,7 +1049,7 @@ ul#flexiselDemo1 li a h4{
 ul#flexiselDemo1 li a h4:hover{
 	color: #DBC585;
 }
-.nbs-flexisel-item > a img {	
+.nbs-flexisel-item > a img {
 	cursor: auto;
     position: relative;
     width: 100%;
@@ -1183,7 +1183,7 @@ ul#flexiselDemo1 li a h4:hover{
     margin: 0;
 }
 .d-apps,.a-cards{
-	margin:1em 0 0 0;	
+	margin:1em 0 0 0;
 }
 .d-apps ul,.a-cards ul {
 	padding:0;
@@ -1225,7 +1225,7 @@ ul#flexiselDemo1 li a h4:hover{
 }
 .social ul li a.dribbble{
     background: url(../images/social.png) no-repeat -90px 0px;
-}	
+}
 .social ul li a.facebook:hover{
     background: url(../images/social.png) no-repeat 0px -32px;
 }
@@ -1237,10 +1237,10 @@ ul#flexiselDemo1 li a h4:hover{
 }
 .social ul li a.dribbble:hover{
     background: url(../images/social.png) no-repeat -90px -32px;
-}	
+}
 .a-cards ul li:nth-child(2){
 	margin:0 1em;
-}		
+}
 .copyright{
     padding: 2em 0 0 0;
     text-align: center;
@@ -1266,7 +1266,7 @@ ul#flexiselDemo1 li a h4:hover{
 }
 /*-- hotels --*/
 .hotels-banner{
-    background: url(../images/banner3.jpg) no-repeat 0px 0px;	
+    background: url(../images/banner3.jpg) no-repeat 0px 0px;
 	background-size:cover;
 }
 /*-- holidays --*/
@@ -1473,7 +1473,7 @@ ul#flexiselDemo1 li a h4:hover{
 /*-- faqs --*/
 .faqs-top-grids,.c-rooms{
     background: #FFF;
-    padding: 2em;	
+    padding: 2em;
 }
 .faqs-grids:nth-child(2) {
 	margin:2em 0;
@@ -1885,7 +1885,7 @@ span.starTextLabel {
     color: #777;
     font-size: 1em;
     font-weight: 400;
-}	
+}
 .check input[type=radio], .check input[type="checkbox"] {
     width: 1.15384615em;
     height: 1.15384615em;
@@ -2882,7 +2882,7 @@ span.menu {
 	.book-left {
 		padding: 0;
 	}
-}	
+}
 #strankovani {
   width: 100%;
   text-align: center;
@@ -2900,7 +2900,7 @@ span.menu {
   width: 100%;
   text-align: center;
   font-size: 17px;
-  color: red;  
+  color: red;
 }
 #administrace_menu {
   width: 100%;
@@ -2909,7 +2909,7 @@ span.menu {
 #paticka_stred {
   width: 100%;
   text-align: center;
-  font-size: 15px;  
+  font-size: 15px;
   color: white;
   background-color: rgb(111, 213, 8);
   padding-top: 8px;
@@ -2929,7 +2929,7 @@ input.hledat_tl {
   color: white;
   background-color: rgb(111, 213, 8);
   border: 1px solid rgb(111, 213, 8);
-  font-size: 15px;  
+  font-size: 15px;
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 10px;
@@ -2939,7 +2939,7 @@ input.hledat_tl {
 #tlacitko_admin {
   width: 100%;
   text-align: center;
-  font-size: 15px;  
+  font-size: 15px;
   color: white;
   background-color: rgb(111, 213, 8);
   margin-top: 10px;
@@ -2951,8 +2951,17 @@ input[type=submit]#tlacitko_admin {
 
 #pridani_dovolene {color: white;}
 
-.chyba_ramecek { 
+.chyba_ramecek {
   padding-top: 5px;
   padding-bottom: 5px;
-  border: 1px dotted gray; 
-}        
+  border: 1px dotted gray;
+}
+
+#nastred {
+	width: 100%;
+}
+
+.ulozit_zmeny {
+	margin: 0 auto;
+	text-align: center;
+}
