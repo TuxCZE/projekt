@@ -5,14 +5,13 @@
 			<div class="footer-top-grids">
 				<div class="footer-grids">
 					<div class="col-md-3 footer-grid">
-						<h4>Nače produkty</h4>
+						<h4>Naše produkty</h4>
 						<ul>
-							<li><a href="index.html">Nabídka dovolených</a></li>
-							<li><a href="flights-hotels.html">Last minute nabídky</a></li>
-							<li><a href="index.html">Služby</a></li>
+							<li><a href="/nabidka">Nabídka dovolených</a></li>
+							<li><a href="/sluzby">Služby</a></li>
 						</ul>
 					</div>
-          
+
 					<div class="col-md-3 footer-grid">
 						<h4>O firmě</h4>
 						<ul>
@@ -23,7 +22,7 @@
 							<li><a href="contact.html">Kontaktujte nás</a></li>
 						</ul>
 					</div>
-          
+
 					<div class="col-md-3 footer-grid">
 						<h4>Průvodce</h4>
 						<ul>
@@ -32,7 +31,7 @@
 							<li><a href="booking.html">Způsoby platby</a></li>
 						</ul>
 					</div>
-          
+
 					<div class="col-md-3 footer-grid">
 						<h4>Ostatní odkazy</h4>
 						<ul class="chf_footer_list">

@@ -36,7 +36,7 @@
                 <td>{{ $objednavka->Zaplaceno }}</td>
                 <td>{{ $objednavka->Splatnost }}</td>
 
-                <td><a href="#">Upravit</a> | <a href="#">Smazat</a></td>
+                <td><a href="#">Smazat</a></td>
               </tr>
             @endforeach
 

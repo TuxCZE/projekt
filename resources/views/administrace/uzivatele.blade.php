@@ -8,8 +8,8 @@
 			<div class="about-info">
 				<h2>Administrace - Uživatelé</h2>
 			</div>
-      
-			<div class="faqs-top-grids terms-grids">	
+
+			<div class="faqs-top-grids terms-grids">
 				<table class="table table-bordered table-striped table-hover">
         	<thead>
         		<tr>
@@ -20,7 +20,7 @@
         			<th>Akce</th>
         		</tr>
         	</thead>
-          
+
         	<tbody>
             @foreach ($uzivatele as $uziv)
               <tr>
@@ -28,10 +28,10 @@
                 <td>{{ $uziv->Email }}</td>
                 <td>{{ $uziv->Prava }}</td>
                 <td>{{ $uziv->Datum_registrace }}</td>
-                <td><a hred="#">Upravit</a> | <a hred="#">Smazat</a></td>
+                <td><a href="/administrace/uzivatele/smaz/{{ $uziv->ID }}">Smazat</a></td>
               </tr>
             @endforeach
-            
+
             @if (count($uzivatele) < 1)
               <tr>
                 <td colspan="5" align="center">Nebyl nalezen žádný uživatel!</td>
@@ -39,10 +39,10 @@
             @endif
         	</tbody>
         </table>
-        
+
         <div id="strankovani">
           @for ($i = 1; $i <= $max_stranek; $i++)
-            <a href="/administrace/uzivatele/{{ $i }}">{{ $i }}</a>    
+            <a href="/administrace/uzivatele/{{ $i }}">{{ $i }}</a>
           @endfor
         </div>
 			</div>
@@ -50,5 +50,5 @@
 		<!-- //container -->
 	</div>
 	<!-- //banner-bottom -->
-  
+
 @endsection

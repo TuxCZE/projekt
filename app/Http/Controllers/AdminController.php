@@ -81,7 +81,12 @@
 
     public function SmazUzivatele($ID)
     {
+      $smazani = array();
+      $smazani[] = "Administrace - Smazání uživatele";
+      $smazani[] = "Opravdu chcete smazat uživatele s ID " . $ID . "?";
+      $smazani[] = "/administrace/uzivatele/smaz/" . $ID;
 
+      return view("administrace.smazani", $this->VratMenu(2), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
     }
 
     public function sluzby()
@@ -120,7 +125,12 @@
 
     public function smazKontakt($ID)
     {
+      $smazani = array();
+      $smazani[] = "Administrace - Smazání zprávy";
+      $smazani[] = "Opravdu chcete smazat zprávu s ID " . $ID . "?";
+      $smazani[] = "/administrace/kontakt/smaz/" . $ID;
 
+      return view("administrace.smazani", $this->VratMenu(4), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
     }
 
     public function pridaniDovolene()
@@ -200,12 +210,27 @@
 
     public function smazatDovolenou($ID)
     {
+      $smazani = array();
+      $smazani[] = "Administrace - Smazání dovolené";
+      $smazani[] = "Opravdu chcete smazat dovolenou s ID " . $ID . "?";
+      $smazani[] = "/administrace/dovolene/smaz/" . $ID;
 
+      return view("administrace.smazani", $this->VratMenu(1), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
     }
 
     public function upravitDovolenou($ID)
     {
 
+    }
+
+    public function smazatObjednavku($ID)
+    {
+      $smazani = array();
+      $smazani[] = "Administrace - Smazání objednávky";
+      $smazani[] = "Opravdu chcete smazat objednávku s ID " . $ID . "?";
+      $smazani[] = "/administrace/objednavky/smaz/" . $ID;
+
+      return view("administrace.smazani", $this->VratMenu(1), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
     }
   }
 ?>

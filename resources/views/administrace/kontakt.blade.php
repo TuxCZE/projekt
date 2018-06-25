@@ -28,7 +28,7 @@
                 <td>{{ $zprava->Email }}</td>
                 <td>{{ $zprava->Text }}</td>
                 <td>{{ $zprava->Odeslano }}</td>
-                <td><a href="/administrace/kontakt/zobraz/{{ $zprava->ID }}">Zobrazit</a> | <a href="#">Smazat</a></td>
+                <td><a href="/administrace/kontakt/zobraz/{{ $zprava->ID }}">Zobrazit</a> | <a href="/administrace/kontakt/smaz/{{ $zprava->ID }}">Smazat</a></td>
               </tr>
             @endforeach
 

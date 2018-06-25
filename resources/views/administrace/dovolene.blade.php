@@ -8,8 +8,8 @@
 			<div class="about-info">
 				<h2>Administrace - Dovolené</h2>
 			</div>
-      
-			<div class="faqs-top-grids terms-grids">	
+
+			<div class="faqs-top-grids terms-grids">
 				<table class="table table-bordered table-striped table-hover">
         	<thead>
         		<tr>
@@ -20,7 +20,7 @@
         			<th>Akce</th>
         		</tr>
         	</thead>
-          
+
         	<tbody>
             @foreach ($dovolene as $dovolena)
               <tr>
@@ -28,10 +28,10 @@
                 <td>{{ $dovolena->Titulek }}</td>
                 <td>{{ $dovolena->Cena }}</td>
                 <td>{{ $dovolena->Termin_od }} - {{ $dovolena->Termin_do }}</td>
-                <td><a href="#">Upravit</a> | <a href="#">Smazat</a></td>
+                <td><a href="#">Upravit</a> | <a href="/administrace/dovolene/smaz/{{ $dovolena->ID }}">Smazat</a></td>
               </tr>
             @endforeach
-            
+
             @if (count($dovolene) < 1)
               <tr>
                 <td colspan="5" align="center">Zatím nebyla přidaná žádná dovolená!</td>
@@ -39,10 +39,10 @@
             @endif
         	</tbody>
         </table>
-        
+
         <div id="strankovani">
           @for ($i = 1; $i <= $max_stranek; $i++)
-            <a href="/administrace/dovolene/{{ $i }}">{{ $i }}</a>    
+            <a href="/administrace/dovolene/{{ $i }}">{{ $i }}</a>
           @endfor
         </div>
 			</div>
@@ -50,5 +50,5 @@
 		<!-- //container -->
 	</div>
 	<!-- //banner-bottom -->
-  
+
 @endsection
