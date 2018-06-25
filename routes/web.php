@@ -81,6 +81,9 @@ Route::get('/administrace/kontakt/{stranka}', ['uses' => 'AdminController@kontak
 Route::get('/administrace/kontakt/zobraz/{ID}', ['uses' => 'AdminController@zobrazKontakt', 'as' => 'admin.zobrazKontakt'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/kontakt/smaz/{ID}', ['uses' => 'AdminController@smazKontakt', 'as' => 'admin.smazKontakt'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
 
+Route::get('/administrace/objednavky', ['uses' => 'AdminController@objednavky', 'as' => 'admin.objednavky'])->middleware('prihlasenyuzivatel', 'admin');
+Route::get('/administrace/objednavky/{stranka}', ['uses' => 'AdminController@objednavky', 'as' => 'admin.objednavky'])->where('stranka', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
+
 /*
   ADMINISTRACE- ZPRACOVÁNÍ POST POŽADAVKŮ
 */

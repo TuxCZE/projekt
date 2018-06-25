@@ -60,6 +60,13 @@
       return view("administrace.dovolene", $vysledek, ['uzivatel' => session("email"),  'pat_text' => $paticka_text, 'pat_odkaz' => $paticka_odkaz]);
     }
 
+    public function objednavky($stranka = 1)
+    {
+      $vysledek = array_merge($this->VratMenu(5), $this->VratObsahTabulky('objednavky', 'objednavky', $stranka));
+
+      return view("administrace.objednavky", $vysledek, ['uzivatel' => session("email"),  'pat_text' => '', 'pat_odkaz' => '']);
+    }
+
     public function uzivatele($stranka = 1)
     {
       $vysledek = array_merge($this->VratMenu(2), $this->VratObsahTabulky('uzivatele', 'uzivatele', $stranka));
