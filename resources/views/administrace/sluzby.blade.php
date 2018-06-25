@@ -12,9 +12,7 @@
 			<div class="faqs-top-grids terms-grids">
 			 {{ Form::open(array('url' => '/administrace/sluzby')) }}
 
-			 <textarea rows="18" cols="150" name="sluzby_text">
-				 {{ $sluzby_text }}
-			 </textarea>
+			 <textarea rows="18" cols="150" name="sluzby_text">{{ $sluzby_text }}</textarea>
 
 			 <div id="nastred"><input class="ulozit_zmeny" type="Submit" value="Uložit změny"></div>
 

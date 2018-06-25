@@ -106,7 +106,9 @@
 
     public function zobrazKontakt($ID)
     {
+      $kontakt = DB::table("kontakt")->where('ID', "=", $ID)->get()[0];
 
+      return view("administrace.kont_zobraz", $this->VratMenu(4), ['uzivatel' => session("email"), 'pat_text' => "", 'kontakt' => $kontakt]);
     }
 
     public function smazKontakt($ID)
