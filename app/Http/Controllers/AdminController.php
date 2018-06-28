@@ -89,6 +89,17 @@
       return view("administrace.smazani", $this->VratMenu(2), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
     }
 
+    public function odstranUzivatele($ID)
+    {
+      $zprava = array();
+      $zprava[] = "Administrace - Smazání uživatele";
+      $zprava[] = "Uživatel s ID " . $ID . "byl úspěšně smazána!";
+
+      DB::table('uzivatele')->where('ID', "=", $ID)->delete();
+
+      return view("administrace.zprava", $this->VratMenu(2), ['uzivatel' => session("email"), 'pat_text' => "", 'zprava' => $zprava]);
+    }
+
     public function sluzby()
     {
       $sluzby_text = DB::table("jednostrankove")->where('Nazev', "=", "sluzby")->get()[0];
@@ -131,6 +142,17 @@
       $smazani[] = "/administrace/kontakt/smaz/" . $ID;
 
       return view("administrace.smazani", $this->VratMenu(4), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
+    }
+
+    public function odstranKontakt($ID)
+    {
+      $zprava = array();
+      $zprava[] = "Administrace - Smazání zprávy z kontaktu";
+      $zprava[] = "Zpráva s ID " . $ID . " byla úspěšně smazána!";
+
+      DB::table('kontakt')->where('ID', "=", $ID)->delete();
+
+      return view("administrace.zprava", $this->VratMenu(4), ['uzivatel' => session("email"), 'pat_text' => "", 'zprava' => $zprava]);
     }
 
     public function pridaniDovolene()
@@ -218,6 +240,18 @@
       return view("administrace.smazani", $this->VratMenu(1), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
     }
 
+    //POST požadavek
+    public function smazDovolenou($ID)
+    {
+      $zprava = array();
+      $zprava[] = "Administrace - Smazání dovolené";
+      $zprava[] = "Dovolená s ID " . $ID . " byla úspěšně smazána!";
+
+      DB::table('dovolene')->where('ID', "=", $ID)->delete();
+
+      return view("administrace.zprava", $this->VratMenu(1), ['uzivatel' => session("email"), 'pat_text' => "", 'zprava' => $zprava]);
+    }
+
     public function upravitDovolenou($ID)
     {
 
@@ -230,7 +264,18 @@
       $smazani[] = "Opravdu chcete smazat objednávku s ID " . $ID . "?";
       $smazani[] = "/administrace/objednavky/smaz/" . $ID;
 
-      return view("administrace.smazani", $this->VratMenu(1), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
+      return view("administrace.smazani", $this->VratMenu(5), ['uzivatel' => session("email"), 'pat_text' => "", 'smazani' => $smazani]);
+    }
+
+    public function smazObjednavku($ID)
+    {
+      $zprava = array();
+      $zprava[] = "Administrace - Smazání objednávky";
+      $zprava[] = "Objednávka s ID " . $ID . " byla úspěšně smazána!";
+
+      DB::table('objednavky')->where('ID', "=", $ID)->delete();
+
+      return view("administrace.zprava", $this->VratMenu(5), ['uzivatel' => session("email"), 'pat_text' => "", 'zprava' => $zprava]);
     }
   }
 ?>

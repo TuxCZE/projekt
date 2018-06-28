@@ -65,8 +65,8 @@ Route::get('/administrace/uvod', ['uses' => 'AdminController@uvod', 'as' => 'adm
 Route::get('/administrace/dovolene', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene'])->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/dovolene/{stranka}', ['uses' => 'AdminController@dovolene', 'as' => 'admin.dovolene'])->where('stranka', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/dovolene/pridat', ['uses' => 'AdminController@pridaniDovolene', 'as' => 'admin.pridaniDovolene'])->middleware('prihlasenyuzivatel', 'admin');
-Route::get('/administrace/dovolene/smaz/{ID}', ['uses' => 'AdminController@smazatDovolenou', 'as' => 'admin.smazatDovolenou'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/dovolene/uprav/{ID}', ['uses' => 'AdminController@upravitDovolenou', 'as' => 'admin.upravitDovolenou'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
+Route::get('/administrace/dovolene/smaz/{ID}', ['uses' => 'AdminController@smazatDovolenou', 'as' => 'admin.smazatDovolenou'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
 
 Route::get('/administrace/uzivatele', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele'])->middleware('prihlasenyuzivatel', 'admin');
 Route::get('/administrace/uzivatele/{stranka}', ['uses' => 'AdminController@uzivatele', 'as' => 'admin.uzivatele'])->where('stranka', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
@@ -89,3 +89,6 @@ Route::get('/administrace/objednavky/smaz/{ID}', ['uses' => 'AdminController@sma
   ADMINISTRACE- ZPRACOVÁNÍ POST POŽADAVKŮ
 */
 Route::post('/administrace/dovolene/pridat', ['uses' => 'AdminController@pridejDovolenou', 'as' => 'admin.pridejDovolenou']);
+Route::post('/administrace/dovolene/smaz/{ID}', ['uses' => 'AdminController@smazDovolenou', 'as' => 'admin.smazDovolenou'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
+Route::post('/administrace/uzivatele/smaz/{ID}', ['uses' => 'AdminController@odstranUzivatele', 'as' => 'admin.odstranUzivatele'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
+Route::post('/administrace/kontakt/smaz/{ID}', ['uses' => 'AdminController@odstranKontakt', 'as' => 'admin.odstranKontakt'])->where('ID', '[0-9]+')->middleware('prihlasenyuzivatel', 'admin');
